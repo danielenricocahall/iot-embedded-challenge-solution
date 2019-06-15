@@ -110,7 +110,7 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	}
 	if(type.compare("heat") == 0) {
 		const std::string unit = device["unit"].asString();
-		if(unit.compare("F")) {
+		if(unit.compare("F") == 0) {
 			// convert to C
 			// Note: maybe put this in util?
 			stateValue = (9/5) * stateValue + 32;
