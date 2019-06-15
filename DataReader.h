@@ -19,7 +19,13 @@ public:
 	const std::string  processDevice(const Json::Value& device);
 	void sendData(const unsigned int baud_rate, const std::string& serial_port);
 
+
 private:
 	std::vector<std::string> m_devices_information;
+	static const std::size_t callback(
+			const char* in,
+			const std::size_t size,
+			const std::size_t num,
+			std::string* out);
 
 };

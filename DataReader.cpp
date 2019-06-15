@@ -24,12 +24,11 @@ DataReader::~DataReader() {
 
 }
 
-std::size_t callback(
+const std::size_t DataReader::callback(
 		const char* in,
 		const std::size_t size,
 		const std::size_t num,
-		std::string* out)
-{
+		std::string* out) {
 	const std::size_t totalBytes(size * num);
 	out->append(in, totalBytes);
 	return totalBytes;
