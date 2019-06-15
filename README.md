@@ -13,10 +13,13 @@ After starting the server, run "Driver.cpp", which should read the json from "lo
 
 ## TODO ##
 
-* Checksum - not sure I understand it entirely
+* Checksum - not sure I understand it entirely, so I didn't add that to the serial message
 * Maybe add some safety checks/precautions
 * Put some logic in a util (i.e; converting F to C)
+ 
+## Notes ##
 
+This was a pretty cool challenge, and not overly difficult - most of the work was just finding the correct libraries to use, which I was already fairly familiar with JsonCpp and Boost.
 
 
 
