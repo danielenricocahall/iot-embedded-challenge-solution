@@ -91,7 +91,7 @@ const std::vector<std::string> DataReader::readDevicesInformation(const Json::Va
 
 const std::string DataReader::processDevice(const Json::Value& device) {
 	std::stringstream ss;
-
+	ss << "J";
 	const std::string type = device["type"].asString();
 	const std::string state = device["state"].asString();
 	ss << type.at(0);
@@ -111,7 +111,6 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	}
 	if(type.compare("heat") == 0) {
 		const std::string unit = device["unit"].asString();
-		std::cout << unit << std::endl;
 		if(unit.compare("F")) {
 			// convert to C
 			// Note: maybe put this in util?
@@ -125,7 +124,7 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	ss << "\r";
 	//NL
 	ss << "\n";
-	std::cout << ss.str() << std::endl;
+	std::cout << ss.str();
 	std::string payload = ss.str();
 	return payload;
 }
