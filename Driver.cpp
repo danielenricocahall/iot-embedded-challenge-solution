@@ -5,16 +5,11 @@
  *      Author: daniel
  */
 
-
-
-
-// main.cpp
 #include <cstdint>
 #include <iostream>
 #include <memory>
 #include <string>
 #include "DataReader.h"
-
 
 
 int main()
