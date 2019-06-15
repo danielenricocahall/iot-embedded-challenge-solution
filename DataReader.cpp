@@ -119,7 +119,9 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	}
 	ss << std::to_string(stateValue);
 
-
+	// this is where checksum logic would go, but I'm a litte uncertain how to implement it:
+	// const unsigned int checksum = ...;
+	// ss << checksum;
 	// CR
 	ss << "\r";
 	//NL
