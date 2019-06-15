@@ -62,7 +62,6 @@ void DataReader::readData(
 
 	        if (jsonReader.parse(*httpData, jsonData))
 	        {
-	            //std::cout << jsonData.toStyledString() << std::endl;
 	            const Json::Value devices =  jsonData["devices"];
 	            m_devices_information = readDevicesInformation(devices);
 
@@ -93,8 +92,8 @@ const std::vector<std::string> DataReader::readDevicesInformation(const Json::Va
 const std::string DataReader::processDevice(const Json::Value& device) {
 	std::stringstream ss;
 
-	std::string type = device["type"].asString();
-	std::string state = device["state"].asString();
+	const std::string type = device["type"].asString();
+	const std::string state = device["state"].asString();
 	ss << type.at(0);
 
 	uint8_t stateValue;
@@ -110,7 +109,6 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	else {
 		stateValue = atoi(state.c_str());
 	}
-	std::cout << type << std::endl;
 	if(type.compare("heat") == 0) {
 		const std::string unit = device["unit"].asString();
 		std::cout << unit << std::endl;
