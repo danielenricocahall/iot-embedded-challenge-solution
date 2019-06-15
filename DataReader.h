@@ -14,7 +14,9 @@ class DataReader {
 public:
 	DataReader();
 	virtual ~DataReader();
+	void readData(const std::string& url);
 
 private:
+	std::vector<std::string> m_devices_information;
 
 };
