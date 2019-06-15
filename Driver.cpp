@@ -23,7 +23,7 @@ int main()
 	DataReader * dataReader = new DataReader();
 	const std::string url = "http://localhost:8080/devices/";
 	const int baud_rate = 9600;
-	const std::string serial_port = "/dev/tty0";
+	const std::string serial_port = "/dev/ttyS0";
 	dataReader->readData(url);
 	dataReader->sendData(baud_rate, serial_port);
 	return 0;
