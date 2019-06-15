@@ -17,6 +17,7 @@ public:
 	void readData(const std::string& url);
 	const std::vector<std::string> readDevicesInformation(const Json::Value& devices);
 	const std::string  processDevice(const Json::Value& device);
+	void sendData(const unsigned int baud_rate, const std::string& serial_port);
 
 private:
 	std::vector<std::string> m_devices_information;

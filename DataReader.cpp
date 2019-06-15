@@ -132,3 +132,14 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	return payload;
 }
 
+void DataReader::sendData(
+		const unsigned int baud_rate,
+		const std::string& serial_port) {
+	static boost::asio::io_service ios;
+	boost::asio::serial_port sp(ios, serial_port);
+	sp.set_option(boost::asio::serial_port::baud_rate(baud_rate));
+	for(const std::string& payload: m_devices_information) {
+		sp.write_some(boost::asio::buffer(payload));
+	}
+	sp.close();
+}
