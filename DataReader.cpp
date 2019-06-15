@@ -62,8 +62,9 @@ void DataReader::readData(
 
 	        if (jsonReader.parse(*httpData, jsonData))
 	        {
-	            std::cout << jsonData.toStyledString() << std::endl;
+	            //std::cout << jsonData.toStyledString() << std::endl;
 	            const Json::Value devices =  jsonData["devices"];
+	            m_devices_information = readDevicesInformation(devices);
 
 	        }
 	        else
@@ -79,6 +80,55 @@ void DataReader::readData(
 
 }
 
+const std::vector<std::string> DataReader::readDevicesInformation(const Json::Value& devices) {
+	std::vector<std::string> devices_information;
+    for (unsigned int i = 0; i < devices.size(); ++i) {
+    	const std::string payload= processDevice(devices[i]);
+    	devices_information.push_back(payload);
+    	}
+    return devices_information;
+    }
 
 
+const std::string DataReader::processDevice(const Json::Value& device) {
+	std::stringstream ss;
+
+	std::string type = device["type"].asString();
+	std::string state = device["state"].asString();
+	ss << type.at(0);
+
+	uint8_t stateValue;
+
+	if(type.compare("light") == 0) {
+		if(state.compare("on")) {
+			stateValue = 1;
+		}
+		else {
+			stateValue = 0;
+		}
+	}
+	else {
+		stateValue = atoi(state.c_str());
+	}
+	std::cout << type << std::endl;
+	if(type.compare("heat") == 0) {
+		const std::string unit = device["unit"].asString();
+		std::cout << unit << std::endl;
+		if(unit.compare("F")) {
+			// convert to C
+			// Note: maybe put this in util?
+			stateValue = (9/5) * stateValue + 32;
+		}
+	}
+	ss << std::to_string(stateValue);
+
+
+	// CR
+	ss << "\r";
+	//NL
+	ss << "\n";
+	std::cout << ss.str() << std::endl;
+	std::string payload = ss.str();
+	return payload;
+}
 
