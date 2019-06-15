@@ -16,7 +16,10 @@ After starting the server, run "Driver.cpp", which should read the json from "lo
 * Checksum - not sure I understand it entirely
 * Maybe add some safety checks/precautions
 * Put some logic in a util (i.e; converting F to C)
+ 
+## NOTES ##
 
+This was a pretty cool challenge, and not overly difficult - most of the work was just finding the correct libraries to use, which I was already fairly familiar with JsonCpp and Boost.
 
 
 
