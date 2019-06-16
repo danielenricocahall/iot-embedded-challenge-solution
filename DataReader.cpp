@@ -98,7 +98,7 @@ const std::string DataReader::processDevice(const Json::Value& device) {
 	uint8_t stateValue;
 
 	if(type.compare("light") == 0) {
-		if(state.compare("on")) {
+		if(state.compare("on") == 0) {
 			stateValue = 1;
 		}
 		else {
