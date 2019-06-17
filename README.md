@@ -9,7 +9,7 @@ This is my solution to the Jefferson Health IOT Embedded Challenge. There are a 
 
 ## Running ##
 
-After starting the server, run "Driver.cpp", which should read the json from "localhost:8080/devices/",parse it and place the type/value information in the correct format, and send it to a serial port (I think I have it set to /dev/tty0 right now) with a specified baud rate. All the logic can be found in the DataReader class.
+After starting the server, run "Driver.cpp", which should read the json from "localhost:8080/devices/",parse it and place the type/value information in the correct format, and send it to a serial port (I think I have it set to /dev/ttyS0 right now) with a specified baud rate. All the logic can be found in the DataReader class.
 
 ## TODO ##
 
