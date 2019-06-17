@@ -21,5 +21,6 @@ int main()
 	const std::string serial_port = "/dev/ttyS0";
 	dataReader->readData(url);
 	dataReader->sendData(baud_rate, serial_port);
+	delete dataReader;
 	return 0;
 }
