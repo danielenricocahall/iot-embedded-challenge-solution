@@ -21,5 +21,11 @@ After starting the server, run "Driver.cpp", which should read the json from "lo
 
 This was a pretty cool challenge, and not overly difficult - most of the work was just finding the correct libraries to use, which I was already fairly familiar with JsonCpp and Boost.
 
+## Helpful Links ##
+
+While reading the documentation is helpful, I also used some StackOverflow for guidance:
+https://stackoverflow.com/questions/24884490/using-libcurl-and-jsoncpp-to-parse-from-https-webserver
+https://stackoverflow.com/questions/23519309/serial-port-communication-c-linux
+
 
 
